@@ -1,0 +1,178 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API de Clientes",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/clientes": {
+            "get": {
+                "summary": "Listar todos os clientes",
+                "operationId": "f8eafbc2e9500413091c7f84a4470b84",
+                "responses": {
+                    "200": {
+                        "description": "Lista de clientes"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Criar novo cliente",
+                "operationId": "2a8a28c7aec782e1af95193a65053e68",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "nome",
+                                    "data_nascimento",
+                                    "tipo_pessoa",
+                                    "cpf_cnpj",
+                                    "email",
+                                    "telefone",
+                                    "id_endereco",
+                                    "id_profissao",
+                                    "status"
+                                ],
+                                "properties": {
+                                    "nome": {
+                                        "type": "string"
+                                    },
+                                    "data_nascimento": {
+                                        "description": "Formato: YYYY-MM-DD HH:MM:SS",
+                                        "type": "string",
+                                        "pattern": "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}$"
+                                    },
+                                    "tipo_pessoa": {
+                                        "type": "string"
+                                    },
+                                    "cpf_cnpj": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email"
+                                    },
+                                    "telefone": {
+                                        "description": "Formato: (00) 0000-0000 ou (00) 00000-0000",
+                                        "type": "string",
+                                        "pattern": "^\\(\\d{2}\\)\\s\\d{4,5}-\\d{4}$"
+                                    },
+                                    "id_endereco": {
+                                        "type": "integer"
+                                    },
+                                    "id_profissao": {
+                                        "type": "integer"
+                                    },
+                                    "status": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Cliente criado com sucesso"
+                    }
+                }
+            }
+        },
+        "/api/clientes/{id}": {
+            "delete": {
+                "summary": "Deletar cliente",
+                "description": "Remove um cliente pelo ID",
+                "operationId": "fae533cf0841c3ece1414287d89ef42b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do cliente",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Cliente deletado com sucesso"
+                    },
+                    "404": {
+                        "description": "Cliente não encontrado"
+                    }
+                }
+            }
+        },
+        "/api/enderecos": {
+            "get": {
+                "summary": "Listar todos os enderecos",
+                "operationId": "3187938c343b2d7b76ed175ecba9b417",
+                "responses": {
+                    "200": {
+                        "description": "Lista de enderecos"
+                    }
+                }
+            },
+            "post": {
+                "summary": "Criar novo endereco",
+                "operationId": "4554fd24c6358cd5168606ab307b0360",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "endereco",
+                                    "numero",
+                                    "bairro",
+                                    "cidade",
+                                    "uf"
+                                ],
+                                "properties": {
+                                    "endereco": {
+                                        "type": "string"
+                                    },
+                                    "numero": {
+                                        "type": "string"
+                                    },
+                                    "bairro": {
+                                        "type": "string"
+                                    },
+                                    "complemento": {
+                                        "type": "string"
+                                    },
+                                    "cidade": {
+                                        "type": "string"
+                                    },
+                                    "uf": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Endereco criado com sucesso"
+                    }
+                }
+            }
+        },
+        "/api/profissoes": {
+            "get": {
+                "summary": "Listar todos as profissoes",
+                "operationId": "af6e5ee9e605f1a5a66f9b01238887f6",
+                "responses": {
+                    "200": {
+                        "description": "Lista de profissoes"
+                    }
+                }
+            }
+        }
+    }
+}
