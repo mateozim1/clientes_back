@@ -32,7 +32,12 @@
                                     "telefone",
                                     "id_endereco",
                                     "id_profissao",
-                                    "status"
+                                    "status",
+                                    "endereco",
+                                    "numero",
+                                    "bairro",
+                                    "cidade",
+                                    "uf"
                                 ],
                                 "properties": {
                                     "nome": {
@@ -65,6 +70,24 @@
                                         "type": "integer"
                                     },
                                     "status": {
+                                        "type": "string"
+                                    },
+                                    "endereco": {
+                                        "type": "string"
+                                    },
+                                    "numero": {
+                                        "type": "string"
+                                    },
+                                    "bairro": {
+                                        "type": "string"
+                                    },
+                                    "complemento": {
+                                        "type": "string"
+                                    },
+                                    "cidade": {
+                                        "type": "string"
+                                    },
+                                    "uf": {
                                         "type": "string"
                                     }
                                 },
@@ -106,10 +129,10 @@
                 }
             }
         },
-        "/api/enderecos": {
+        "/api/endereco": {
             "get": {
                 "summary": "Listar todos os enderecos",
-                "operationId": "3187938c343b2d7b76ed175ecba9b417",
+                "operationId": "fc366a401788e626797d0a31393d60cb",
                 "responses": {
                     "200": {
                         "description": "Lista de enderecos"
@@ -118,7 +141,7 @@
             },
             "post": {
                 "summary": "Criar novo endereco",
-                "operationId": "4554fd24c6358cd5168606ab307b0360",
+                "operationId": "70bafc759656906f3bbd22d7993a4679",
                 "requestBody": {
                     "required": true,
                     "content": {

@@ -43,7 +43,7 @@ class ClienteController extends Controller
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
-     *             required={"nome", "data_nascimento", "tipo_pessoa", "cpf_cnpj", "email", "telefone", "id_endereco", "id_profissao", "status"},
+     *             required={"nome", "data_nascimento", "tipo_pessoa", "cpf_cnpj", "email", "telefone", "id_endereco", "id_profissao", "status","endereco", "numero", "bairro", "cidade", "uf"},
      *             @OA\Property(property="nome", type="string"),
      *             @OA\Property(
      *                 property="data_nascimento",
@@ -63,6 +63,12 @@ class ClienteController extends Controller
      *             @OA\Property(property="id_endereco", type="integer"),
      *             @OA\Property(property="id_profissao", type="integer"),
      *             @OA\Property(property="status", type="string"),
+     *      *      @OA\Property(property="endereco", type="string"),
+     *             @OA\Property(property="numero", type="string"),
+     *             @OA\Property(property="bairro", type="string"),
+     *             @OA\Property(property="complemento", type="string"),
+     *             @OA\Property(property="cidade", type="string"),
+     *             @OA\Property(property="uf", type="string"),
      *         )
      *     ),
      *     @OA\Response(response=201, description="Cliente criado com sucesso")
